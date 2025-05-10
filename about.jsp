@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>About --nivniv Simple JSP Application</title>
+    <title>About -niv- Simple JSP Application</title>
     <style>
         body {
             font-family: Arial, sans-serif;

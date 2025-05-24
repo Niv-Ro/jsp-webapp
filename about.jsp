@@ -42,6 +42,10 @@
             <li>Moshe Matan Sityon</li>
             <li>Idan Marmor</li>
         </ul>
+	<form action="index.jsp">
+            <button class="btn" type="submit">Main page</button>
+        </form>
+
     </div>
 </body>
 </html>

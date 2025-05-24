@@ -1,98 +1,99 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Simple JSP Application</title>
+    <title>DevOps Final Project</title>
     <style>
+        /* רקע כללי */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #74ebd5, #ACB6E5);
             margin: 0;
-            padding: 20px;
-            background-color: #f4f4f4;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
         }
+
+        /* כרטיס מרכזי */
         .container {
-            max-width: 600px;
-            margin: 0 auto;
-            background-color: white;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            background-color: #ffffff;
+            padding: 40px 50px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            text-align: center;
+            width: 100%;
+            max-width: 500px;
         }
+
         h1 {
             color: #333;
+            margin-bottom: 25px;
         }
-        .form-group {
-            margin-bottom: 15px;
-        }
+
         label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
+            font-size: 1.1em;
+            color: #555;
         }
+
         input[type="text"] {
             width: 100%;
-            padding: 8px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            box-sizing: border-box;
+            padding: 12px;
+            margin-top: 10px;
+            margin-bottom: 20px;
+            border: 2px solid #74ebd5;
+            border-radius: 8px;
+            font-size: 1em;
         }
-        button {
-            background-color: #4CAF50;
+
+        .btn {
+            background-color: #4a90e2;
             color: white;
-            padding: 10px 15px;
             border: none;
-            border-radius: 4px;
+            padding: 12px 25px;
+            margin: 10px;
+            border-radius: 8px;
+            font-size: 1em;
             cursor: pointer;
+            transition: background-color 0.3s ease;
         }
-        button:hover {
-            background-color: #45a049;
+
+        .btn:hover {
+            background-color: #357ab7;
         }
-        .result {
+
+        .greeting {
             margin-top: 20px;
-            padding: 10px;
-            background-color: #e9f7ef;
-            border-radius: 4px;
-        }
-        a {
-            color: #2196F3;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
+            font-size: 1.3em;
+            color: #2c3e50;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Welcome to My JSP Application</h1>
-        
-        <% 
-        // Process form submission
-        String name = request.getParameter("username");
-        boolean isSubmitted = name != null && !name.trim().isEmpty();
+        <h1>Welcome to the DevOps Final Project</h1>
+
+        <form method="get">
+            <label for="name">Enter your name:</label><br>
+            <input type="text" id="name" name="name">
+            <br>
+            <button class="btn" type="submit">Submit</button>
+        </form>
+
+        <%
+            String name = request.getParameter("name");
+            if (name != null && !name.trim().isEmpty()) {
         %>
-        
-        <% if (isSubmitted) { %>
-            <div class="result">
-                <h3>Hello, <%= name %>!</h3>
-                <p>Thank you for submitting the form.</p>
-                <a href="index.jsp">Go back to form</a>
-            </div>
-        <% } else { %>
-            <form action="index.jsp" method="post">
-                <div class="form-group">
-                    <label for="username">Enter your name:</label>
-                    <input type="text" id="username" name="username" placeholder="Your name" required>
-                </div>
-                
-                <div class="form-group">
-                    <button type="submit">Submit</button>
-                </div>
-            </form>
-            
-            <p>
-                <a href="about.jsp">About this application</a>
-            </p>
-        <% } %>
+            <div class="greeting">Hello, <%= name %>!</div>
+        <%
+            }
+        %>
+
+        <form action="about.jsp">
+            <button class="btn" type="submit">About</button>
+        </form>
     </div>
+</body>
+</html>
